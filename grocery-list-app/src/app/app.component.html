@@ -1,0 +1,28 @@
+
+<div class="container">
+
+<app-add-grocery-item></app-add-grocery-item>
+
+<h2>
+  Grocery List
+</h2>
+
+  <ul class="list-group">
+    <li *ngFor="let item of list$ | async" class="list-group-item">
+      <h4 class="expand-collapse expanded" (click)="expandCollapse($event)">
+        <a href="javascript:;" *ngIf="item.optionalNote">
+          <span></span>
+        </a>
+        {{ item.name }}
+      </h4>
+    
+      <div class="notes">
+        {{ item.optionalNote }}
+      </div>
+      <button class="btn btn-primary btn-sm" (click)="confirm(item.id)">remove</button>    
+    </li>
+  </ul>
+
+</div>
+
+
